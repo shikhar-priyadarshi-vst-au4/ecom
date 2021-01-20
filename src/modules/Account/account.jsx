@@ -18,7 +18,6 @@ export const Account = () => {
 //   const selector = useSelector(state => state.auth);
 //   console.log(selector);
   useEffect(() => {
-      let timer;
       isAuthenticated().onAuthStateChanged((user) => {
         if(!!user){
             user.getIdTokenResult().then(res => {
@@ -35,10 +34,6 @@ export const Account = () => {
             })
         }
       })
-
-      return () => {
-          clearTimeout(timer);
-      }
   },[])
 
   const alertHandler = (payload) => {
